@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: "@2* * 1"
+    - cron: "0 2 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -54,7 +54,7 @@ jobs:
           curl -I http://localhost:5000
 
       - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v@.12.0
+        uses: zaproxy/action-baseline@v0.12.0
         continue-on-error: true
         with:
           target: "http://localhost:5000"
